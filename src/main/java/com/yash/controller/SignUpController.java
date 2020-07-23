@@ -12,6 +12,12 @@ import com.yash.model.ApiResponse;
 import com.yash.model.User;
 import com.yash.service.service.UserServiceImpl;
 
+/**
+ * This controller registers a new user
+ * 
+ * @author Yash
+ *
+ */
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/signup")

@@ -27,6 +27,14 @@ public class AuthenticationController {
     @Autowired
     private UserServiceImpl userService;
 
+    /**
+     * This method generates a simple token when the user logs in
+     * The is sent along with a status code
+     * 
+     * @param loginUser
+     * @return
+     * @throws AuthenticationException
+     */
     @RequestMapping(value = "/generate-token", method = RequestMethod.POST)
     public ApiResponse<AuthToken> register(@RequestBody LoginUser loginUser) throws AuthenticationException {
 

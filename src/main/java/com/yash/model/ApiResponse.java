@@ -1,38 +1,45 @@
 package com.yash.model;
 
+/**
+ * ApiResponse sent at each request
+ * 
+ * @author Yash
+ *
+ * @param <T>
+ */
 public class ApiResponse<T> {
 
-    private int status;
-    private String message;
-    private Object result;
+	private int status;
+	private String message;
+	private Object result;
 
-    public ApiResponse(int status, String message, Object result) {
-        this.status = status;
-        this.message = message;
-        this.result = result;
-    }
+	public ApiResponse(int status, String message, Object result) {
+		this.status = status;
+		this.message = message;
+		this.result = result;
+	}
 
-    public int getStatus() {
-        return status;
-    }
+	public int getStatus() {
+		return status;
+	}
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
-    public String getMessage() {
-        return message;
-    }
+	public String getMessage() {
+		return message;
+	}
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
-    public Object getResult() {
-        return result;
-    }
+	public Object getResult() {
+		return result;
+	}
 
-    public void setResult(Object result) {
-        this.result = result;
-    }
+	public void setResult(Object result) {
+		this.result = result;
+	}
 }

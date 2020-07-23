@@ -1,36 +1,42 @@
 package com.yash.model;
 
+/**
+ * Token Model
+ * 
+ * @author Yash
+ *
+ */
 public class AuthToken {
 
-    private String token;
-    private String username;
+	private String token;
+	private String username;
 
-    public AuthToken(){
+	public AuthToken() {
 
-    }
+	}
 
-    public AuthToken(String token, String username){
-        this.token = token;
-        this.username = username;
-    }
+	public AuthToken(String token, String username) {
+		this.token = token;
+		this.username = username;
+	}
 
-    public AuthToken(String token){
-        this.token = token;
-    }
+	public AuthToken(String token) {
+		this.token = token;
+	}
 
-    public String getToken() {
-        return token;
-    }
+	public String getToken() {
+		return token;
+	}
 
-    public void setToken(String token) {
-        this.token = token;
-    }
+	public void setToken(String token) {
+		this.token = token;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 }

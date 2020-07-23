@@ -44,17 +44,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new JwtAuthenticationFilter();
     }
 
+    /**
+     * Mention all the URL pattern that can be accessed without authentication
+     * Add Handler to take care of unauthorized access
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().
                 authorizeRequests()
-                .antMatchers("/token/*", "/signup").permitAll()
+                .antMatchers("/token/*", "/signup","/news/*","/news/{data}","/news/count/{id}").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http
-                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
     }
 
     @Bean

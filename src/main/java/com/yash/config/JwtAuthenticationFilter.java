@@ -27,6 +27,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    /**
+     * Check for token and match it with the db username
+     * Token is not signed so extraction is straightForward
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         String header = req.getHeader(HEADER_STRING);
