@@ -2,6 +2,7 @@ package com.yash.service.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -15,6 +16,9 @@ import org.springframework.stereotype.Controller;
 public class MasterService {
 	@Autowired
 	protected UserServiceImpl userService;
+	
+	@Autowired
+	protected SimpMessageSendingOperations messagingTemplate;
 
 	@Autowired
 	protected NewsService newsService;

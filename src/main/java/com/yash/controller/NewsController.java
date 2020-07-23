@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.yash.model.ApiResponse;
 import com.yash.model.Category;
 import com.yash.service.service.MasterService;
+import com.yash.support.NewsSupport;
 
 /**
  * This controller handles all the requests related to the news page 
@@ -40,6 +41,7 @@ public class NewsController extends MasterService {
 	 */
 	@GetMapping("/{data}")
 	public ApiResponse<Category> getNews(@PathVariable List<String> data) {
+		NewsSupport.categories = data;
 		return new ApiResponse<>(HttpStatus.OK.value(), "News Data",newsService.getNewsByCategory(data));
 	}
 	

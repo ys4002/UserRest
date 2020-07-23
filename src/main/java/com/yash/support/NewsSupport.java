@@ -1,8 +1,10 @@
 package com.yash.support;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import com.rometools.rome.feed.synd.SyndEntry;
@@ -11,6 +13,7 @@ import com.rometools.rome.io.SyndFeedInput;
 import com.rometools.rome.io.XmlReader;
 import com.yash.model.Agency;
 import com.yash.model.AgencyFeed;
+import com.yash.model.ApiResponse;
 import com.yash.model.Category;
 import com.yash.model.FeedData;
 import com.yash.model.News;
@@ -25,6 +28,8 @@ import com.yash.service.service.MasterService;
 
 @Component
 public class NewsSupport extends MasterService implements ISupport {
+	
+	public static List<String> categories = new ArrayList<String>();
 
 	public void updateFeed(List<FeedData> data) {
 		for (FeedData feed : data) {
@@ -88,7 +93,11 @@ public class NewsSupport extends MasterService implements ISupport {
 				e.printStackTrace();
 			}
 		}
+		if (categories.size() > 0) {
+			messagingTemplate
+					.convertAndSend("/topic/reply", new ApiResponse<>(HttpStatus.OK.value(), "News Data",newsService.getNewsByCategory(categories)));
 
+	
+		}
 	}
-
 }
